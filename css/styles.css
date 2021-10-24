@@ -47,6 +47,10 @@ img {
   max-width: 100%;
 }
 
+.link {
+  transition: color 250ms var(--animation-funct);
+}
+
 .transparent {
   position: absolute;
   white-space: nowrap;
@@ -140,8 +144,7 @@ img {
 .link:focus,
 .list .adress:hover,
 .list .adress:focus {
-  color: var(--accent-color);
-  stroke: var(--accent-color);
+  color: var(--accent-color);  
 }
 
 .site-nav-item:not(:first-child) {
@@ -166,7 +169,8 @@ img {
   transition: transform 250ms var(--animation-funct);
 }
 
-.link-head:hover::after {
+.link-head:hover::after,
+.link-head:focus::after {
   transform: scaleX(1);
 }
 
@@ -198,7 +202,8 @@ img {
 
 .head-svg {
   margin-right: 10px;
-  --color5: inherit;
+  fill: var(--primary-text-color);
+  transition: fill 250ms var(--animation-funct);
 }
 
 .mail {
@@ -209,6 +214,11 @@ img {
 .tel {
   width: 16px;
   height: 25px;
+}
+
+.link:hover .head-svg,
+.link:focus .head-svg {
+  fill: var(--accent-color);
 }
 
 /*Hero*/
@@ -234,9 +244,8 @@ img {
 }
 
 .hero-title {
-  width: 696px;
-  margin-left: 452px;
-  margin-right: 452px;
+  width: 696px;  
+  margin: 0 auto;
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
@@ -456,30 +465,33 @@ img {
 }
 
 .soc-set {
-  display: block;
+  display: flex;
   width: 44px;
   height: 44px;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   border: none;
+  background: var(--primary-white-color);
+  transition: background 250ms var(--animation-funct);  
+}
 
-  --color3: var(--primary-white-color);
-  --color1: #afb1b8;
+.soc-set-svg {
+  width: 20px;
+  height: 20px; 
+  fill: #afb1b8;
+  transition: fill 250ms var(--animation-funct);  
 }
 
 .soc-set:focus,
 .soc-set:hover {
-  --color3: var(--accent-color);
-  --color1: var(--primary-white-color);
+  background: var(--accent-color);
 }
 
-.soc-set-svg {
-  width: 44px;
-  height: 44px;
-  --color3: inherit;
-  --color1: inherit;
+.soc-set:focus .soc-set-svg,
+.soc-set:hover .soc-set-svg {
+  fill: var(--primary-white-color);
 }
-
-/* Clients */
 
 .section-clients {
   padding-top: 94px;
@@ -504,23 +516,21 @@ img {
   border-radius: 4px;
   height: 92px;
   justify-content: center;
-  align-items: center;
-  --color2: #afb1b8;
-  --color1: #afb1b8;
+  align-items: center;    
 }
-
-.client-link:focus,
-.client-link:hover {
-  --color2: var(--accent-color);
-  --color1: var(--accent-color);
-}
-
 .client-svg {
   width: 106px;
   height: 92px;
-  --color2: inherit;
-  --color1: inherit;
+  fill: #afb1b8;
+  transition: fill 250ms var(--animation-funct);
 }
+
+.client-link:focus>.client-svg,
+.client-link:hover>.client-svg {
+  fill: var(--accent-color);  
+}
+
+
 
 /*footer*/
 
@@ -580,13 +590,15 @@ img {
 }
 
 .contein-footer .soc-set {
-  --color3: rgba(255, 255, 255, 0.1);
-  --color1: var(--primary-white-color);
+  background: rgba(255, 255, 255, 0.1);  
 }
 
+.contein-footer .soc-set-svg {
+  fill: var(--primary-white-color);  
+}
 .contein-footer .soc-set:focus,
 .contein-footer .soc-set:hover {
-  --color3: var(--accent-color);
+  background: var(--accent-color);
 }
 
 /*Portfolio*/
